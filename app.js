@@ -30,7 +30,12 @@ yargs.command({
     handler: function (argv) {
         //console.log("Adding a new note with title: "+ argv.title)
         //console.log(argv.body)
-        notes.addNote(argv.title,argv.body)
+        const addValue = notes.addNote(argv.title,argv.body)
+        if (addValue === 1) {
+            console.log(chalk.bgGreen("New note added!"))
+        } else {
+            console.log(chalk.bgRed("Note title taken!"))
+        }
     }
 })
 
@@ -39,8 +44,20 @@ yargs.command({
 yargs.command({
     command: 'remove',
     describe: 'Remove note',
-    handler: function () {
-        console.log("Removing a note!")
+    builder: {
+        title: {
+            describe: "Note whose Title needs to be Removed",
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: function (argv) {
+        const removeValue = notes.removeNote(argv.title)
+        if (removeValue === 1) {
+            console.log(chalk.bgGreen("Removed Note!"))
+        } else {
+            console.log(chalk.bgRed("Cant find Note!"))
+        }
     }
 })
 
