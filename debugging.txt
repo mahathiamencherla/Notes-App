@@ -1,0 +1,18 @@
+step 1
+console.log everything
+
+step 2 - debugger
+
+"debugger" - add this at the point you want to debug
+in terminal run code as: node inspect app.js ....(blah blah)
+..goes down to a debug terminal 
+go to chrome and then type: chrome://inspect
+go to configure (discover network targets)
+make sure 127.0.0.1:9229 and localhost(9229) are there
+now click inspect and youll go to the debug tool
+
+click that play button in the right hand side and itll run till "debugger"
+and you can click play again itll continue till the end or till it finds debugger
+
+
+if you wanna shut this... go to the original terminal and type ctrl+C twice
