@@ -13,7 +13,7 @@ $ git clone https://github.com/mahathiamencherla15/Notes-App
 ## Pre-requisities
 > Some key things to set up / understand to use this app:
 
-- **[NodeJS v9](https://nodejs.org/en/)**
+- **[NodeJS v13](https://nodejs.org/en/)**
 - **[npm](https://www.npmjs.com/)**
 
 
