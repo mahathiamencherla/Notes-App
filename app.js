@@ -27,14 +27,14 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function (argv) {
+    handler(argv) {
         //console.log("Adding a new note with title: "+ argv.title)
         //console.log(argv.body)
         const addValue = notes.addNote(argv.title,argv.body)
         if (addValue === 1) {
-            console.log(chalk.bgGreen("New note added!"))
+            console.log(chalk.black.bgGreen("New note added!"))
         } else {
-            console.log(chalk.bgRed("Note title taken!"))
+            console.log(chalk.black.bgRed("Note title taken!"))
         }
     }
 })
@@ -51,12 +51,12 @@ yargs.command({
             type: 'string'
         }
     },
-    handler: function (argv) {
+    handler(argv) {
         const removeValue = notes.removeNote(argv.title)
         if (removeValue === 1) {
-            console.log(chalk.bgGreen("Removed Note!"))
+            console.log(chalk.black.bgGreen("Removed Note!"))
         } else {
-            console.log(chalk.bgRed("Cant find Note!"))
+            console.log(chalk.black.bgRed("Cant find Note!"))
         }
     }
 })
@@ -66,8 +66,9 @@ yargs.command({
 yargs.command({
     command: 'list',
     describe: 'Listing notes',
-    handler: function () {
-        console.log("Listing all notes!")
+    handler() {
+        console.log(chalk.black.bgBlue("Listing all notes!"))
+        notes.listNotes()
     }
 })
 
@@ -76,7 +77,7 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Reading a note',
-    handler: function () {
+    handler(){
         console.log("Reading a note!")
     }
 })
