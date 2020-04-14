@@ -77,8 +77,21 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Reading a note',
-    handler(){
-        console.log("Reading a note!")
+    builder: {
+        title: {
+            describe: "Note to be read",
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler(argv){
+        const readValue = notes.readNote(argv.title)
+        if (!readValue) {
+            console.log(chalk.black.bgRed("Cant find Note!"))
+        } else {
+            console.log(chalk.inverse(readValue.title))
+            console.log(readValue.body)            
+        }
     }
 })
 
